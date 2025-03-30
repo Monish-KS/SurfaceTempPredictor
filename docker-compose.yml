@@ -1,0 +1,30 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"  # Streamlit port
+      - "5000:5000"  # Flask API port
+    volumes:
+      - ./Models:/app/Models
+      - ./wait-for-ollama.sh:/app/wait-for-ollama.sh
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_MODEL=mistral
+      - FLASK_ENV=production
+    command: ["bash", "/app/wait-for-ollama.sh", "streamlit", "run", "WTB.py"]
+
+  ollama:
+    image: ollama/ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:

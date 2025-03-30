@@ -1,0 +1,6 @@
+worldtemperatureviewer-app.tar
+ollama_image.tar
+Data/WorldData1.csv
+Data/WorldData.csv
+Data\GlobalLandTemperaturesByCity.csv
+Data\GlobalLandTemperaturesByState.csv
