@@ -1,8 +1,9 @@
 worldtemperatureviewer-app.tar
 ollama_image.tar
+# Exclude specific large data files but not the entire Data folder
 Data/WorldData1.csv
-Data/WorldData.csv
-Data\GlobalLandTemperaturesByCity.csv
-Data\GlobalLandTemperaturesByState.csv
+# Data/WorldData.csv  - Now tracked by Git LFS
+Data/GlobalLandTemperaturesByCity.csv
+Data/GlobalLandTemperaturesByState.csv
 Report.docx
 __pycache__
